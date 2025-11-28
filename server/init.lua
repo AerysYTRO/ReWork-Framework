@@ -98,13 +98,20 @@ end
     Inițializare server tick pentru cleanup-uri periodice
 ]]
 function StartServerTick()
-    SetInterval(function()
+    -- FiveM uses SetTimeout for repeating tasks
+    local function TickCleanup()
         -- Cleanup expired RPC requests
         RPC:CleanupExpiredRequests()
         
         -- Cleanup old rate limit entries
         ReWorkSecurity:CleanupRateLimits()
-    end, 5000) -- Run every 5 seconds
+        
+        -- Schedule next cleanup in 5 seconds
+        SetTimeout(5000, TickCleanup)
+    end
+    
+    -- Start the cleanup loop
+    SetTimeout(5000, TickCleanup)
 end
 
 --[[
