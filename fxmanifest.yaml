@@ -1,0 +1,45 @@
+fx_version 'cerulean'
+game 'gta5'
+
+author 'ReWork Team'
+description 'ReWork - Advanced FiveM Framework with modular architecture'
+version '1.0.0'
+
+lua54 'yes'
+
+shared_scripts {
+    'shared/**/*.lua'
+}
+
+server_scripts {
+    'server/**/*.lua'
+}
+
+client_scripts {
+    'client/**/*.lua',
+    'client/**/*.ts'
+}
+
+ui_page 'ui/index.html'
+
+files {
+    'ui/**/*',
+    'resources/**/*'
+}
+
+-- Exports pentru alte resurse care vor folosi framework-ul
+exports {
+    'getFramework',
+    'getRPC',
+    'getDatabase',
+    'getSecurity',
+    'getPluginManager'
+}
+
+-- Dependency declarations
+dependencies {
+    '/server:5000'
+}
+
+-- Performance optimization
+disableClientUpdate 'yes'
