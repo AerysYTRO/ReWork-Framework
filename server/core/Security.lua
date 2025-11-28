@@ -261,4 +261,9 @@ function Security:GetStats()
     }
 end
 
+-- Export as global for FiveM
+if not _G.Security then
+    _G.Security = Security
+end
+
 return Security

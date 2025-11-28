@@ -3,14 +3,28 @@
     Inițializează și configurează framework-ul pe server
 ]]
 
--- Import core modules
-local Framework = require("server.core.Framework")
-local RPC = require("server.core.RPC")
-local Database = require("server.core.Database")
-local Security = require("server.core.Security")
-local PluginManager = require("server.core.PluginManager")
+-- NOTE: Core modules (Framework, RPC, Database, Security, PluginManager)
+-- are loaded by fxmanifest.yaml in the correct order BEFORE this file
+-- They are available as globals in the current context
 
--- Make globals accessible
+-- Verify all modules are loaded
+if not Framework then
+    error("Framework module not loaded! Check fxmanifest.yaml order")
+end
+if not RPC then
+    error("RPC module not loaded! Check fxmanifest.yaml order")
+end
+if not Database then
+    error("Database module not loaded! Check fxmanifest.yaml order")
+end
+if not Security then
+    error("Security module not loaded! Check fxmanifest.yaml order")
+end
+if not PluginManager then
+    error("PluginManager module not loaded! Check fxmanifest.yaml order")
+end
+
+-- Optional: Make them available as shorter globals if preferred
 _G.ReWork = Framework
 _G.ReWorkRPC = RPC
 _G.ReWorkDB = Database

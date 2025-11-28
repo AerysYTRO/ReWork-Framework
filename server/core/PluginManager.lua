@@ -305,4 +305,9 @@ function PluginManager:CreatePluginContext(pluginName)
     return env
 end
 
+-- Export as global for FiveM
+if not _G.PluginManager then
+    _G.PluginManager = PluginManager
+end
+
 return PluginManager

@@ -174,4 +174,9 @@ function RPC:ValidatePayload(data)
     return true
 end
 
+-- Export as global for FiveM
+if not _G.RPC then
+    _G.RPC = RPC
+end
+
 return RPC

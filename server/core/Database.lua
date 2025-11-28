@@ -312,4 +312,9 @@ function Database:GetCacheStats()
     }
 end
 
+-- Export as global for FiveM
+if not _G.Database then
+    _G.Database = Database
+end
+
 return Database

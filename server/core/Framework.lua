@@ -199,9 +199,10 @@ function ReWork:GetModuleStatus()
 end
 
 -- Singleton pattern - asigură o singură instanță
-if not _G.ReWorkFramework then
-    _G.ReWorkFramework = ReWork:Initialize() and ReWork or nil
-    Logger:info("ReWork Framework singleton creat")
+if not _G.Framework then
+    _G.Framework = ReWork
+    ReWork:Initialize()
+    Logger:info("ReWork Framework initialized as global")
 end
 
 return ReWork
