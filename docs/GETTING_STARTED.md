@@ -352,8 +352,8 @@ A: Folosiți caching, batch processing, și optimizați queries.
 ## 📞 Support
 
 Pentru ajutor, contactează:
-- Discord: [Link server]
-- GitHub Issues: [Issues page]
+- Discord: https://discord.gg/bGe5SPYUgK
+- GitHub Issues: [\[Issues page\]](https://github.com/AerysYTRO/ReWork-Framework/issues)
 
 ---
 
